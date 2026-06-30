@@ -1,0 +1,25 @@
+# Dependencies (only used for local testing)
+node_modules/
+package-lock.json
+package.json
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Editors
+.vscode/
+.idea/
+
+# --- Legacy iOS (Xcode) ---
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+*.xcworkspace/
+!*.xcodeproj/project.pbxproj
+DerivedData/
+build/
+Pods/
+.build/
+Package.resolved
