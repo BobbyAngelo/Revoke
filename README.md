@@ -92,4 +92,4 @@ Revoke is **not a law firm and does not provide legal advice.** It helps you exe
 
 ## License
 
-[MIT](LICENSE) © 2026 bobbyangelo
+[MIT](LICENSE) © 2026 BobbyAngelo
