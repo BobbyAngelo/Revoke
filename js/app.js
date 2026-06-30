@@ -2,7 +2,11 @@
 (function () {
   "use strict";
 
-  const brokers = (window.BROKERS || []).slice();
+  let cachedBrokers = null;
+  try {
+    cachedBrokers = JSON.parse(localStorage.getItem("revoke_cached_brokers"));
+  } catch (e) {}
+  let brokers = (cachedBrokers && cachedBrokers.length > 0) ? cachedBrokers : (window.BROKERS || []).slice();
   let settings = window.loadSettings();
   let activeTab = "browse";
   let activeCategory = "all";
@@ -492,6 +496,70 @@
     sec.appendChild(card);
     r.appendChild(sec);
 
+    // Directory Updates (OTA Sync)
+    const updateSec = el('<div class="section"></div>');
+    updateSec.appendChild(el('<div class="section-title">Directory Updates</div>'));
+    const updateCard = el('<div class="card"></div>');
+    updateCard.appendChild(el(`
+      <p style="margin:0 0 10px;line-height:1.55;font-size:14px;color:var(--text-dim)">
+        Revoke maintains a directory of data brokers. You can sync the latest directory from the official open-source repository at any time.
+      </p>
+    `));
+    
+    const syncStatusStr = localStorage.getItem("revoke_cached_brokers") 
+      ? `Currently using: ${brokers.length} companies (Synced OTA update)`
+      : `Currently using: ${brokers.length} companies (Bundled default)`;
+    
+    const statusDiv = el(`<div class="sync-status" style="font-size:13px;color:var(--text-dim);margin-bottom:12px;">${esc(syncStatusStr)}</div>`);
+    updateCard.appendChild(statusDiv);
+    
+    const syncBtn = el('<button class="btn secondary">🔄 Sync latest list</button>');
+    const resetSyncBtn = el('<button class="btn secondary">Reset to default</button>');
+    
+    syncBtn.addEventListener("click", async () => {
+      syncBtn.disabled = true;
+      syncBtn.textContent = "Syncing...";
+      try {
+        const res = await fetch("https://raw.githubusercontent.com/BobbyAngelo/Revoke/main/data/brokers.json");
+        if (!res.ok) throw new Error("Network response was not ok");
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          localStorage.setItem("revoke_cached_brokers", JSON.stringify(data));
+          brokers.length = 0;
+          brokers.push(...data);
+          toast("Directory synced successfully!");
+          render();
+        } else {
+          throw new Error("Invalid directory format");
+        }
+      } catch (err) {
+        console.error(err);
+        toast("Failed to sync: check connection or try again later.");
+      } finally {
+        syncBtn.disabled = false;
+        syncBtn.textContent = "🔄 Sync latest list";
+      }
+    });
+
+    resetSyncBtn.addEventListener("click", () => {
+      if (localStorage.getItem("revoke_cached_brokers")) {
+        localStorage.removeItem("revoke_cached_brokers");
+        brokers.length = 0;
+        brokers.push(...(window.BROKERS || []).slice());
+        toast("Reset to bundled directory.");
+        render();
+      } else {
+        toast("Already using default directory.");
+      }
+    });
+
+    const btnRow = el('<div class="btn-row"></div>');
+    btnRow.appendChild(syncBtn);
+    btnRow.appendChild(resetSyncBtn);
+    updateCard.appendChild(btnRow);
+    updateSec.appendChild(updateCard);
+    r.appendChild(updateSec);
+
     const danger = el('<div class="section"><div class="section-title">Data</div></div>');
     const resetCard = el('<div class="card"></div>');
     const resetBtn = el('<button class="btn danger">Reset all data</button>');
@@ -499,7 +567,10 @@
       if (confirm("Delete all your saved receipts and settings from this browser?")) {
         localStorage.removeItem("revoke_settings");
         localStorage.removeItem("revoke_receipts");
+        localStorage.removeItem("revoke_cached_brokers");
         settings = window.loadSettings();
+        brokers.length = 0;
+        brokers.push(...(window.BROKERS || []).slice());
         toast("All local data cleared");
         activeTab = "settings";
         render();
