@@ -103,46 +103,48 @@
             </p>
           </div>
 
-          <div class="landing-features">
-            <div class="landing-feature-card">
-              <div class="landing-icon">🔒</div>
-              <h3>100% Local &amp; Private</h3>
-              <p>No accounts, no servers, no tracking. All of your information and logs remain securely in your browser's localStorage.</p>
+          <div class="landing-main-grid">
+            <div class="landing-left-col">
+              <div class="landing-feature-card">
+                <div class="landing-icon">🔒</div>
+                <h3>100% Local &amp; Private</h3>
+                <p>No accounts, no servers, no tracking. All of your information and logs remain securely in your browser's localStorage.</p>
+              </div>
+              <div class="landing-feature-card">
+                <div class="landing-icon">⚖️</div>
+                <h3>Statutory Citations</h3>
+                <p>Automatically maps requests to the CCPA/CPRA, TDPSA, CPA, and 15+ other US state privacy laws.</p>
+              </div>
+              <div class="landing-feature-card">
+                <div class="landing-icon">📬</div>
+                <h3>Enforcement Support</h3>
+                <p>Auto-generates official Attorney General complaints if companies fail to respond within their statutory deadlines.</p>
+              </div>
             </div>
-            <div class="landing-feature-card">
-              <div class="landing-icon">⚖️</div>
-              <h3>Statutory Citations</h3>
-              <p>Automatically maps requests to the CCPA/CPRA, TDPSA, CPA, and 15+ other US state privacy laws.</p>
-            </div>
-            <div class="landing-feature-card">
-              <div class="landing-icon">📬</div>
-              <h3>Enforcement Support</h3>
-              <p>Auto-generates official Attorney General complaints if companies fail to respond within their statutory deadlines.</p>
-            </div>
-          </div>
 
-          <div class="landing-setup-section">
-            <div class="card landing-setup-card">
-              <h2>Set up your profile to start</h2>
-              <p style="color:var(--text-dim);font-size:14px;line-height:1.5;margin:0 0 16px">
-                Enter your details to generate legally compliant request emails.
-              </p>
-              
-              <div class="field">
-                <label>Full name</label>
-                <input id="l-name" type="text" placeholder="Jane Doe">
+            <div class="landing-right-col">
+              <div class="card landing-setup-card">
+                <h2>Set up your profile to start</h2>
+                <p style="color:var(--text-dim);font-size:14px;line-height:1.5;margin:0 0 16px">
+                  Enter your details to generate legally compliant request emails.
+                </p>
+                
+                <div class="field">
+                  <label>Full name</label>
+                  <input id="l-name" type="text" placeholder="Jane Doe">
+                </div>
+                <div class="field">
+                  <label>Email address</label>
+                  <input id="l-email" type="email" inputmode="email" placeholder="jane@example.com">
+                </div>
+                <div class="field">
+                  <label>Your US state</label>
+                  <select id="l-state"></select>
+                  <div class="hint" id="l-state-hint"></div>
+                </div>
+                
+                <button class="btn" style="margin-top:20px" id="unlockBtn">Unlock the Directory</button>
               </div>
-              <div class="field">
-                <label>Email address</label>
-                <input id="l-email" type="email" inputmode="email" placeholder="jane@example.com">
-              </div>
-              <div class="field">
-                <label>Your US state</label>
-                <select id="l-state"></select>
-                <div class="hint" id="l-state-hint"></div>
-              </div>
-              
-              <button class="btn" style="margin-top:20px" id="unlockBtn">Unlock the Directory</button>
             </div>
           </div>
         </div>
