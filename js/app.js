@@ -36,25 +36,42 @@
   // ---------- top bar + tabs ----------
   function renderShell() {
     document.body.innerHTML = "";
-    const top = el(`
-      <div class="topbar">
-        <div class="brand">
-          <img src="assets/icon.png" alt="Revoke logo" onerror="this.style.display='none'">
-          <div><h1>Revoke</h1><div class="tag">Reclaim your data privacy</div></div>
+    const container = el(`
+      <div class="layout-container">
+        <aside class="sidebar">
+          <div class="brand">
+            <img src="assets/icon.png" alt="Revoke logo" onerror="this.style.display='none'">
+            <div><h1>Revoke</h1><div class="tag">Reclaim your data privacy</div></div>
+          </div>
+          <nav class="sidebar-nav">
+            <button data-tab="browse"><span class="ic">🏢</span>Browse</button>
+            <button data-tab="sent"><span class="ic">📬</span>Sent</button>
+            <button data-tab="learn"><span class="ic">📚</span>Learn</button>
+            <button data-tab="settings"><span class="ic">⚙️</span>Settings</button>
+          </nav>
+          <div class="sidebar-footer">
+            <div class="privacy-lock">🔒 100% Local &amp; Private</div>
+          </div>
+        </aside>
+        <div class="main-content">
+          <div class="topbar">
+            <div class="brand">
+              <img src="assets/icon.png" alt="Revoke logo" onerror="this.style.display='none'">
+              <div><h1>Revoke</h1><div class="tag">Reclaim your data privacy</div></div>
+            </div>
+          </div>
+          <div class="app" id="root"></div>
+          <nav class="tabbar">
+            <button data-tab="browse"><span class="ic">🏢</span>Browse</button>
+            <button data-tab="sent"><span class="ic">📬</span>Sent</button>
+            <button data-tab="learn"><span class="ic">📚</span>Learn</button>
+            <button data-tab="settings"><span class="ic">⚙️</span>Settings</button>
+          </nav>
         </div>
       </div>`);
-    const app = el('<div class="app" id="root"></div>');
-    const tabs = el(`
-      <nav class="tabbar">
-        <button data-tab="browse"><span class="ic">🏢</span>Browse</button>
-        <button data-tab="sent"><span class="ic">📬</span>Sent</button>
-        <button data-tab="learn"><span class="ic">📚</span>Learn</button>
-        <button data-tab="settings"><span class="ic">⚙️</span>Settings</button>
-      </nav>`);
-    document.body.appendChild(top);
-    document.body.appendChild(app);
-    document.body.appendChild(tabs);
-    tabs.querySelectorAll("button").forEach((b) =>
+    document.body.appendChild(container);
+
+    container.querySelectorAll(".sidebar-nav button, .tabbar button").forEach((b) =>
       b.addEventListener("click", () => { activeTab = b.dataset.tab; render(); })
     );
   }
@@ -62,7 +79,7 @@
   function render() {
     const r = document.getElementById("root");
     r.innerHTML = "";
-    document.querySelectorAll(".tabbar button").forEach((b) =>
+    document.querySelectorAll(".sidebar-nav button, .tabbar button").forEach((b) =>
       b.classList.toggle("active", b.dataset.tab === activeTab)
     );
     if (activeTab === "browse") renderBrowse(r);
