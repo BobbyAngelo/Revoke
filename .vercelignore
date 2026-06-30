@@ -1,0 +1,5 @@
+legacy-ios
+node_modules
+package.json
+package-lock.json
+.github
