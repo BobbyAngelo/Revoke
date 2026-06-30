@@ -28,14 +28,14 @@ The company list lives in [`data/brokers.json`](data/brokers.json). Each entry l
 
 Field reference:
 
-- **id** — unique lowercase slug.
-- **category** — one of: `data_broker`, `social_media`, `ad_network`, `retail`, `ai_company`, `surveillance`, `location_broker`, `health_data`, `finance`, `search`.
-- **method** — `email`, `portal`, `web_form`, or `drp`.
-- **risk_level** — `critical`, `high_priority`, `elevated`, `moderate`, `standard`, or `low`.
-- **privacy_email** — the company's verified privacy contact (omit or leave blank if portal-only).
-- **privacy_url** — the official opt-out/portal URL.
+- **id**: unique lowercase slug.
+- **category**: one of: `data_broker`, `social_media`, `ad_network`, `retail`, `ai_company`, `surveillance`, `location_broker`, `health_data`, `finance`, `search`.
+- **method**: `email`, `portal`, `web_form`, or `drp`.
+- **risk_level**: `critical`, `high_priority`, `elevated`, `moderate`, `standard`, or `low`.
+- **privacy_email**: the company's verified privacy contact (omit or leave blank if portal-only).
+- **privacy_url**: the official opt-out/portal URL.
 
-Please cite a source for new privacy contacts in your PR description. **Verify the email or portal is current** — outdated contacts are worse than none.
+Please cite a source for new privacy contacts in your PR description. **Verify the email or portal is current** (outdated contacts are worse than none).
 
 After editing the JSON, regenerate the bundled JS:
 

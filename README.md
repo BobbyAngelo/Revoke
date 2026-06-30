@@ -1,14 +1,14 @@
 <div align="center">
   <img src="assets/icon.png" alt="Revoke" width="88" height="88" style="border-radius:20px">
   <h1>Revoke</h1>
-  <p><strong>Reclaim your data privacy.</strong> One click to send legally-compliant data deletion, opt-out, and access requests to 178+ companies — based on your US state privacy law.</p>
+  <p><strong>Reclaim your data privacy.</strong> One click to send legally-compliant data deletion, opt-out, and access requests to 178+ companies based on your US state privacy law.</p>
 </div>
 
 ---
 
-Companies profit from your personal data every day — data brokers, ad networks, AI companies, and Big Tech collect your name, address, location, browsing habits, purchase history, and more. Most US state privacy laws give you the right to make them stop. **Revoke makes exercising that right take seconds.**
+Companies profit from your personal data every day. Data brokers, ad networks, AI companies, and Big Tech collect your name, address, location, browsing habits, purchase history, and more. Most US state privacy laws give you the right to make them stop. **Revoke makes exercising that right take seconds.**
 
-Pick a company, choose a request type, and Revoke generates an email that cites the exact statute that applies to you and opens it in your mail app. It saves a receipt, tracks the legal response deadline, and — if a company ignores you — drafts a complaint to your state Attorney General.
+Pick a company, choose a request type, and Revoke generates an email that cites the exact statute that applies to you and opens it in your mail app. It saves a receipt, tracks the legal response deadline, and, if a company ignores you, drafts a complaint to your state Attorney General.
 
 This is the **web version** of Revoke, rebuilt as a static, no-backend site. The original iOS (SwiftUI) app is preserved in [`legacy-ios/`](legacy-ios/).
 
@@ -20,8 +20,8 @@ Revoke collects **nothing**. There are no accounts, no servers, no analytics, an
 
 - **178+ companies** across 10 categories: data brokers, AI, surveillance, social media, ad networks, health, finance, retail, search, and location
 - **Legally-worded requests** citing your state's specific privacy statute
-- **Three request types** — Delete, Opt Out of Sale, or Access ("what do you have?")
-- **Deadline tracking** — every sent request is logged with its statutory response deadline
+- **Three request types**: Delete, Opt Out of Sale, or Access ("what do you have?")
+- **Deadline tracking**: every sent request is logged with its statutory response deadline
 - **Attorney General complaint generator** for companies that miss the deadline or refuse
 - **Portal detection** for companies that require a web form instead of email
 - **Full-text search** and category filtering
@@ -29,7 +29,7 @@ Revoke collects **nothing**. There are no accounts, no servers, no analytics, an
 
 ## Supported state privacy laws
 
-California (CCPA/CPRA), Colorado (CPA), Connecticut (CTDPA), Virginia (VCDPA), Texas (TDPSA), Oregon (OCPA), New Jersey (NJDPA), Delaware (DPDPA), Maryland (MODPA), Indiana (INDPA), Kentucky (KCDPA), Montana (MTCDPA), New Hampshire (NHDPA), Iowa (ICDPA), Tennessee (TIPA), Minnesota (MCDPA), and Nebraska (NEDPA) — plus a nationwide CCPA fallback for every other state.
+California (CCPA/CPRA), Colorado (CPA), Connecticut (CTDPA), Virginia (VCDPA), Texas (TDPSA), Oregon (OCPA), New Jersey (NJDPA), Delaware (DPDPA), Maryland (MODPA), Indiana (INDPA), Kentucky (KCDPA), Montana (MTCDPA), New Hampshire (NHDPA), Iowa (ICDPA), Tennessee (TIPA), Minnesota (MCDPA), and Nebraska (NEDPA), plus a nationwide CCPA fallback for every other state.
 
 ## Run it locally
 
@@ -78,7 +78,7 @@ Edit `data/brokers.json`, then regenerate the bundled JS:
 
 ## Contributing
 
-Contributions are welcome — especially:
+Contributions are welcome, especially:
 
 - Adding companies or correcting privacy contact details in `data/brokers.json`
 - Adding newly-effective state privacy laws in `js/data.js`

@@ -108,7 +108,7 @@ window.mailtoURL = function (to, subject, body) {
 // --- Attorney General complaint ---
 
 window.agComplaintSubject = function (brokerName, law) {
-  return `${law.lawName} Complaint: ${brokerName} — Failure to Respond to Consumer Data Request`;
+  return `${law.lawName} Complaint: ${brokerName} - Failure to Respond to Consumer Data Request`;
 };
 
 window.agComplaintBody = function (receipt, userName, userEmail, law) {

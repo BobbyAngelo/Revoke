@@ -1,4 +1,4 @@
-// Client-side persistence. Everything lives in localStorage — nothing leaves the browser.
+// Client-side persistence. Everything lives in localStorage, and nothing leaves the browser.
 
 const SETTINGS_KEY = "revoke_settings";
 const RECEIPTS_KEY = "revoke_receipts";

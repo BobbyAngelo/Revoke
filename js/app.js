@@ -1,4 +1,4 @@
-// Revoke web app — main controller. No backend, no tracking.
+// Revoke web app: main controller. No backend, no tracking.
 (function () {
   "use strict";
 
@@ -191,7 +191,7 @@
       copyBtn.addEventListener("click", async () => {
         const full = (to ? `To: ${to}\n` : "") + `Subject: ${subject}\n\n${body}`;
         try { await navigator.clipboard.writeText(full); toast("Email copied to clipboard"); }
-        catch (e) { toast("Copy failed — select the text manually"); }
+        catch (e) { toast("Copy failed, please select the text manually"); }
         if (to) window.addReceipt(broker, type, to, law);
       });
       row.appendChild(copyBtn);
@@ -298,8 +298,8 @@
         <div class="section-title">Your rights</div>
         <div class="card">
           <p style="margin:0 0 10px;line-height:1.55;font-size:14px;color:var(--text-dim)">
-            Companies profit from your personal data — names, addresses, location, browsing and purchase
-            history, and more. Most US state privacy laws give you the legal right to make them delete it,
+            Companies profit from your personal data (names, addresses, location, browsing, and purchase
+            history). Most US state privacy laws give you the legal right to make them delete it,
             stop selling it, or tell you what they hold.
           </p>
           <p style="margin:0;line-height:1.55;font-size:14px;color:var(--text-dim)">
@@ -311,9 +311,9 @@
       <div class="section">
         <div class="section-title">The three requests</div>
         <div class="card">
-          <p style="margin:0 0 8px;font-size:14px"><strong>🗑️ Delete</strong> — erase everything they have on you.</p>
-          <p style="margin:0 0 8px;font-size:14px"><strong>✋ Opt out</strong> — stop the sale and sharing of your data.</p>
-          <p style="margin:0;font-size:14px"><strong>🔍 Access</strong> — find out exactly what they've collected.</p>
+          <p style="margin:0 0 8px;font-size:14px"><strong>🗑️ Delete</strong>: erase everything they have on you.</p>
+          <p style="margin:0 0 8px;font-size:14px"><strong>✋ Opt out</strong>: stop the sale and sharing of your data.</p>
+          <p style="margin:0;font-size:14px"><strong>🔍 Access</strong>: find out exactly what they've collected.</p>
         </div>
       </div>
       <div class="section">
@@ -329,7 +329,7 @@
         <div class="section-title">Currently in your state</div>
         <div class="card">
           <p style="margin:0;font-size:14px;line-height:1.55">
-            <strong>${esc(law.state)}</strong> — ${esc(law.lawName)}<br>
+            <strong>${esc(law.state)}</strong>: ${esc(law.lawName)}<br>
             <span style="color:var(--text-dim)">${esc(law.statute)}</span><br>
             <span style="color:var(--text-dim)">Response deadline: ${law.responseDays} days</span>
           </p>
@@ -339,8 +339,8 @@
         <div class="section-title">Open source &amp; private by design</div>
         <div class="card">
           <p style="margin:0 0 10px;line-height:1.55;font-size:14px;color:var(--text-dim)">
-            Don't take our word for it. Revoke collects nothing — no accounts, no servers, no tracking —
-            and everything you enter stays in your own browser. The entire app is open source, so you can
+            Don't take our word for it. Revoke collects nothing: no accounts, no servers, and no tracking.
+            Everything you enter stays in your own browser. The entire app is open source, so you can
             read every line, verify nothing phones home, and even host your own copy.
           </p>
           <a class="btn secondary" href="https://github.com/BobbyAngelo/Revoke" target="_blank" rel="noopener" style="text-decoration:none">⭐ View &amp; host the code on GitHub</a>
