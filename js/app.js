@@ -293,6 +293,7 @@
   function renderLearn(r) {
     const law = window.lawForState(settings.userState);
     r.appendChild(el(`
+      <div>
       <div class="section">
         <div class="section-title">Your rights</div>
         <div class="card">
@@ -334,7 +335,19 @@
           </p>
         </div>
       </div>
-      <div class="foot">Revoke is not a law firm and does not provide legal advice. It helps you exercise rights you already have.</div>`));
+      <div class="section">
+        <div class="section-title">Open source &amp; private by design</div>
+        <div class="card">
+          <p style="margin:0 0 10px;line-height:1.55;font-size:14px;color:var(--text-dim)">
+            Don't take our word for it. Revoke collects nothing — no accounts, no servers, no tracking —
+            and everything you enter stays in your own browser. The entire app is open source, so you can
+            read every line, verify nothing phones home, and even host your own copy.
+          </p>
+          <a class="btn secondary" href="https://github.com/BobbyAngelo/Revoke" target="_blank" rel="noopener" style="text-decoration:none">⭐ View &amp; host the code on GitHub</a>
+        </div>
+      </div>
+      <div class="foot">Revoke is not a law firm and does not provide legal advice. It helps you exercise rights you already have.</div>
+      </div>`));
   }
 
   // ---------- Settings ----------
@@ -409,7 +422,8 @@
           <div style="font-size:12px;color:var(--text-faint);margin-top:6px">No accounts. No servers. No tracking.</div>
           <div style="margin-top:10px;font-size:13px">
             <a href="privacy.html">Privacy</a> &nbsp;·&nbsp;
-            <a href="terms.html">Terms</a>
+            <a href="terms.html">Terms</a> &nbsp;·&nbsp;
+            <a href="https://github.com/BobbyAngelo/Revoke" target="_blank" rel="noopener">Source</a>
           </div>
         </div>
       </div>`));
