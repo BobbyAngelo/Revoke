@@ -92,18 +92,94 @@
   // ---------- Browse ----------
   function renderBrowse(r) {
     if (!profileReady()) {
-      r.appendChild(el(`
-        <div class="section">
-          <div class="card">
-            <h2 style="margin:0 0 6px">Set up your profile first</h2>
-            <p style="color:var(--text-dim);font-size:14px;line-height:1.5;margin:0">
-              Revoke needs your name, email, and state to generate legally-worded requests.
-              This information is stored only in your browser and never sent anywhere.
+      const container = el(`
+        <div class="landing-container">
+          <div class="landing-hero">
+            <h1 class="landing-title">Your data is everywhere.<br><span class="accent">Take it back.</span></h1>
+            <p class="landing-subtitle">
+              Companies profit by collecting and selling your location, purchase history, and personal details.
+              US state privacy laws grant you the legal right to make them delete it.
+              Revoke helps you exercise these rights in seconds, with zero intermediaries.
             </p>
-            <button class="btn" style="margin-top:14px" id="goSettings">Set up profile</button>
           </div>
-        </div>`));
-      r.querySelector("#goSettings").addEventListener("click", () => { activeTab = "settings"; render(); });
+
+          <div class="landing-features">
+            <div class="landing-feature-card">
+              <div class="landing-icon">🔒</div>
+              <h3>100% Local &amp; Private</h3>
+              <p>No accounts, no servers, no tracking. All of your information and logs remain securely in your browser's localStorage.</p>
+            </div>
+            <div class="landing-feature-card">
+              <div class="landing-icon">⚖️</div>
+              <h3>Statutory Citations</h3>
+              <p>Automatically maps requests to the CCPA/CPRA, TDPSA, CPA, and 15+ other US state privacy laws.</p>
+            </div>
+            <div class="landing-feature-card">
+              <div class="landing-icon">📬</div>
+              <h3>Enforcement Support</h3>
+              <p>Auto-generates official Attorney General complaints if companies fail to respond within their statutory deadlines.</p>
+            </div>
+          </div>
+
+          <div class="landing-setup-section">
+            <div class="card landing-setup-card">
+              <h2>Set up your profile to start</h2>
+              <p style="color:var(--text-dim);font-size:14px;line-height:1.5;margin:0 0 16px">
+                Enter your details to generate legally compliant request emails.
+              </p>
+              
+              <div class="field">
+                <label>Full name</label>
+                <input id="l-name" type="text" placeholder="Jane Doe">
+              </div>
+              <div class="field">
+                <label>Email address</label>
+                <input id="l-email" type="email" inputmode="email" placeholder="jane@example.com">
+              </div>
+              <div class="field">
+                <label>Your US state</label>
+                <select id="l-state"></select>
+                <div class="hint" id="l-state-hint"></div>
+              </div>
+              
+              <button class="btn" style="margin-top:20px" id="unlockBtn">Unlock the Directory</button>
+            </div>
+          </div>
+        </div>
+      `);
+
+      const sel = container.querySelector("#l-state");
+      window.PRIVACY_LAWS.forEach((l) => sel.appendChild(el(`<option value="${l.id}">${esc(l.state)} (${esc(l.lawName)})</option>`)));
+      sel.appendChild(el('<option value="OTHER">Other (no state law yet)</option>'));
+      sel.value = settings.userState || "CA";
+
+      function updateHint() {
+        const law = window.lawForState(sel.value);
+        container.querySelector("#l-state-hint").textContent =
+          sel.value === "OTHER"
+            ? "Your state has no specific privacy law yet. Requests will cite the CCPA, which most companies honor nationwide."
+            : `Requests will cite: ${law.statute} · Response deadline: ${law.responseDays} days`;
+      }
+      updateHint();
+      sel.addEventListener("change", updateHint);
+
+      container.querySelector("#unlockBtn").addEventListener("click", () => {
+        const nameVal = container.querySelector("#l-name").value.trim();
+        const emailVal = container.querySelector("#l-email").value.trim();
+        if (!nameVal || !emailVal) {
+          toast("Please enter both your name and email");
+          return;
+        }
+        settings.userName = nameVal;
+        settings.userEmail = emailVal;
+        settings.userState = sel.value;
+        settings.onboarded = true;
+        window.saveSettings(settings);
+        toast("Profile saved. Directory unlocked!");
+        render();
+      });
+
+      r.appendChild(container);
       return;
     }
 
