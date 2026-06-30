@@ -445,6 +445,21 @@
           <a class="btn secondary" href="https://github.com/BobbyAngelo/Revoke" target="_blank" rel="noopener" style="text-decoration:none">⭐ View &amp; host the code on GitHub</a>
         </div>
       </div>
+      <div class="section">
+        <div class="section-title">Directory attribution</div>
+        <div class="card">
+          <p style="margin:0 0 10px;line-height:1.55;font-size:14px;color:var(--text-dim)">
+            Revoke's directory and contact database are partially compiled from and inspired by the open-source <strong>Big Ass Data Broker Opt-Out List (BADBOOL)</strong> by Yael Writes, used under the CC BY-NC-SA license.
+          </p>
+          <p style="margin:0 0 12px;line-height:1.55;font-size:14px;color:var(--text-dim)">
+            Support the BADBOOL project, find manual opt-out instructions, and read more of Yael's privacy guides on her site.
+          </p>
+          <div class="btn-row">
+            <a class="btn secondary" href="https://yaelwrites.com/" target="_blank" rel="noopener" style="text-decoration:none;text-align:center">🌐 Visit Yael Writes</a>
+            <a class="btn secondary" href="https://github.com/yaelwrites/big-ass-data-broker-opt-out-list" target="_blank" rel="noopener" style="text-decoration:none;text-align:center">📂 View BADBOOL</a>
+          </div>
+        </div>
+      </div>
       <div class="foot">Revoke is not a law firm and does not provide legal advice. It helps you exercise rights you already have.</div>
       </div>`));
   }

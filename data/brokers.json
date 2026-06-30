@@ -70,11 +70,11 @@
     "name": "Whitepages (Ekata)",
     "category": "data_broker",
     "privacy_email": "support@whitepages.com",
-    "privacy_url": "https://support.whitepages.com/hc/en-us/requests/new",
+    "privacy_url": "https://www.whitepages.com/suppression_requests",
     "method": "portal",
-    "risk_level": "elevated",
-    "notes": "People search service (Ekata subsidiary). Phone and address lookup. Email auto-reply only. Must submit ticket via web form.",
-    "pack": "data_broker"
+    "risk_level": "high_priority",
+    "notes": "People search service. Opt out using the suppression link. Requires confirming a code via an automated voice call to your phone. Also owns 411.com.",
+    "pack": "critical"
   },
   {
     "id": "beenverified",
@@ -91,23 +91,23 @@
     "id": "intelius",
     "name": "Intelius",
     "category": "data_broker",
-    "privacy_email": "privacy@intelius.com",
-    "privacy_url": "https://www.intelius.com/optout",
+    "privacy_email": "support@mailer.intelius.com",
+    "privacy_url": "https://suppression.peopleconnect.us/login",
     "method": "email",
-    "risk_level": "elevated",
-    "notes": "People search and background check service. Aggregates public records and commercial data sources.",
-    "pack": "data_broker"
+    "risk_level": "high_priority",
+    "notes": "People search database. Opt out by emailing support@mailer.intelius.com, calling 1-888-245-1655, or filling out the suppression form. Owns Addresses.com, Instant Checkmate, Truthfinder, US Search, and more.",
+    "pack": "critical"
   },
   {
     "id": "radaris",
     "name": "Radaris",
     "category": "data_broker",
-    "privacy_email": "removals@radaris.com",
+    "privacy_email": "customer-service@radaris.com",
     "privacy_url": "https://radaris.com/control/privacy",
     "method": "portal",
-    "risk_level": "elevated",
-    "notes": "People search service. Complex multi-step removal: find your profile URL on radaris.com, submit to removals@radaris.com with CA residency proof. Non-CA residents must use web portal.",
-    "pack": "data_broker"
+    "risk_level": "high_priority",
+    "notes": "People search service. Copy your profile URL and complete the online forms. If it fails, email your profile details/screenshot directly to customer-service@radaris.com.",
+    "pack": "critical"
   },
   {
     "id": "peopledatalabs",
@@ -1005,11 +1005,11 @@
     "name": "MyLife",
     "category": "data_broker",
     "privacy_email": "privacy@mylife.com",
-    "privacy_url": "https://www.mylife.com/ccpa",
+    "privacy_url": "https://www.mylife.com/privacyrequest",
     "method": "email",
-    "risk_level": "elevated",
-    "notes": "People search site with 'reputation scores.' FTC and Los Angeles City Attorney have taken enforcement actions. Assigns public reputation ratings to individuals.",
-    "pack": "data_broker"
+    "risk_level": "high_priority",
+    "notes": "People search site with 'reputation scores.' Opt out via their online request page, or email privacy@mylife.com with your profile link. Phone removal available at (888) 704-1900.",
+    "pack": "critical"
   },
   {
     "id": "zillow",
@@ -1226,5 +1226,15 @@
   {"id": "dahua", "name": "Dahua Technology", "category": "surveillance", "privacy_email": "privacy@dahuatech.com", "privacy_url": "https://www.dahuasecurity.com/privacy", "method": "email", "risk_level": "critical", "notes": "Second-largest surveillance camera maker. Chinese state-owned. Sanctioned by US government. Cameras still widely sold in US retail.", "pack": "surveillance"},
   {"id": "briefcam", "name": "BriefCam (Canon)", "category": "surveillance", "privacy_email": "privacy@briefcam.com", "privacy_url": "https://www.briefcam.com/privacy-policy/", "method": "email", "risk_level": "high_priority", "notes": "Video analytics and facial recognition platform owned by Canon. Used by law enforcement for retroactive surveillance analysis.", "pack": "surveillance"},
   {"id": "voyager_labs", "name": "Voyager Labs", "category": "surveillance", "privacy_email": "privacy@voyagerlabs.co", "privacy_url": "https://voyagerlabs.co/privacy-policy/", "method": "email", "risk_level": "critical", "notes": "Social media surveillance company. Creates fake accounts to monitor targets. Used by LAPD and other law enforcement agencies.", "pack": "surveillance"},
-  {"id": "sandvine", "name": "Sandvine", "category": "surveillance", "privacy_email": "privacy@sandvine.com", "privacy_url": "https://www.sandvine.com/privacy-policy", "method": "email", "risk_level": "high_priority", "notes": "Deep packet inspection company. Technology used by governments to monitor, throttle, and censor internet traffic.", "pack": "surveillance"}
+  {"id": "sandvine", "name": "Sandvine", "category": "surveillance", "privacy_email": "privacy@sandvine.com", "privacy_url": "https://www.sandvine.com/privacy-policy", "method": "email", "risk_level": "high_priority", "notes": "Deep packet inspection company. Technology used by governments to monitor, throttle, and censor internet traffic.", "pack": "surveillance"},
+  {"id": "checkpeople", "name": "CheckPeople", "category": "data_broker", "privacy_email": "", "privacy_url": "https://checkpeople.com/opt-out", "method": "portal", "risk_level": "high_priority", "notes": "People search site compiling background records. To opt out, complete the forms requiring birthdate and full legal name.", "pack": "critical"},
+  {"id": "clustal", "name": "Clustal.org", "category": "data_broker", "privacy_email": "", "privacy_url": "https://www.clustal.org/privacy-control", "method": "portal", "risk_level": "high_priority", "notes": "People search directory. Search your name, click view full record to grab the final URL, and paste it on their privacy control page.", "pack": "critical"},
+  {"id": "menstoppingviolence", "name": "Men Stopping Violence", "category": "data_broker", "privacy_email": "", "privacy_url": "https://www.menstoppingviolence.org/opt-out/", "method": "portal", "risk_level": "high_priority", "notes": "People search database. Find your profile listing on their people directory, then submit the URL to their opt-out portal to request removal.", "pack": "critical"},
+  {"id": "nuwber", "name": "Nuwber", "category": "data_broker", "privacy_email": "support@nuwber.com", "privacy_url": "https://nuwber.com/removal/link", "method": "email", "risk_level": "high_priority", "notes": "People search directory. Fill out the removal link form with your profile URL. Email support@nuwber.com directly if the form fails.", "pack": "critical"},
+  {"id": "smartbackgroundchecks", "name": "SmartBackgroundChecks", "category": "data_broker", "privacy_email": "", "privacy_url": "https://www.smartbackgroundchecks.com/optout", "method": "portal", "risk_level": "high_priority", "notes": "Free people search engine. Completing the opt-out also removes your details from PeopleFinders.", "pack": "critical"},
+  {"id": "thatsthem", "name": "That's Them", "category": "data_broker", "privacy_email": "", "privacy_url": "https://thatsthem.com/optout", "method": "portal", "risk_level": "high_priority", "notes": "Aggregates physical addresses, emails, phone numbers, and IP addresses. Opt out via their online form.", "pack": "critical"},
+  {"id": "advancedbackgroundchecks", "name": "AdvancedBackgroundChecks", "category": "data_broker", "privacy_email": "", "privacy_url": "https://www.advancedbackgroundchecks.com/opt-out", "method": "portal", "risk_level": "high_priority", "notes": "Large people search database. Submit your email on the opt-out page, then click the link in your inbox to verify removal.", "pack": "critical"},
+  {"id": "familytreenow", "name": "FamilyTreeNow", "category": "data_broker", "privacy_email": "", "privacy_url": "https://www.familytreenow.com/optout", "method": "portal", "risk_level": "high_priority", "notes": "Displays extensive lists of living relatives, associates, and physical address history for free. Opt out via the online portal.", "pack": "critical"},
+  {"id": "fastpeoplesearch", "name": "FastPeopleSearch", "category": "data_broker", "privacy_email": "", "privacy_url": "https://www.fastpeoplesearch.com/optout", "method": "portal", "risk_level": "high_priority", "notes": "Popular free public records search. Submit your profile for removal via their web form, solving the captcha.", "pack": "critical"},
+  {"id": "usphonebook", "name": "USPhoneBook", "category": "data_broker", "privacy_email": "support+optout@usphonebook.com", "privacy_url": "https://www.usphonebook.com/opt-out/", "method": "email", "risk_level": "high_priority", "notes": "Phone directory records. Opt out via their web form, or email support+optout@usphonebook.com directly if the form hangs.", "pack": "critical"}
 ]
