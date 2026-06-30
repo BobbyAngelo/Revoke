@@ -50,7 +50,7 @@ Then open <http://localhost:8000>. (Opening `index.html` directly via `file://` 
 1. Push this repository to GitHub.
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to *Deploy from a branch*, branch **`main`**, folder **`/ (root)`**.
-4. Save. Your site goes live at `https://<your-username>.github.io/revoke/`.
+4. Save. Your site goes live at `https://<your-username>.github.io/Revoke/`.
 
 ## Project structure
 
